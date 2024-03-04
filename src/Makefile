@@ -9,5 +9,8 @@ ip_tools:
 ip_tools.o:
 	$(CC) $(FLAGS) -c ip_tools.c ip_tools.h
 
+clang:
+	clang-format -style='{BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 110}' -n *.c *.h
+
 clean:
 	rm -f *.o
