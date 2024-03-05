@@ -15,11 +15,11 @@ int main() {
 
     input(address);
 
-    /* библиотечная функция inet_aton
-       преобразует строку в числовой ip
-       возвр. статус преобр-ния 0 или 1 */
+    /* библиотечная функция inet_pton
+       преобразует строку в бинарный ip
+       при успехе возвращает 1 */
 
-    check = inet_aton(address, &addr);
+    check = inet_pton(AF_INET, address, &addr);
 
     output(check);
 
@@ -29,11 +29,9 @@ int main() {
 void input(char *address) { scanf("%s", address); }
 
 void output(int check) {
-    if (check != 0) {
+    if (check == 1) {
         printf("VALID");
     } else {
         printf("INVALID");
     }
 }
-
-// message for actions in githab
